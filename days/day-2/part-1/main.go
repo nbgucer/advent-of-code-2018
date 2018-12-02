@@ -45,15 +45,13 @@ func LetterCounter(input string) (twos int, threes int) {
 		}
 	}
 
-	hasTwo := 0
-	hasThree := 0
+	return hasMoreThanZero(twoCount), hasMoreThanZero(threeCount)
+}
 
-	if twoCount > 0 {
-		hasTwo = 1
+func hasMoreThanZero(i int) int {
+	if i > 0 {
+		return 1
+	} else {
+		return 0
 	}
-	if threeCount > 0 {
-		hasThree = 1
-	}
-
-	return hasTwo, hasThree
 }
