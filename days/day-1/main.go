@@ -2,11 +2,9 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
+	"github.com/nbgucer/advent-of-code-2018/utils"
 	"log"
-	"path/filepath"
 	"strconv"
-	"strings"
 )
 
 func main() {
@@ -15,20 +13,9 @@ func main() {
 	found := false
 	seenFrequencies := make(map[int]int)
 	seenFrequencies[0] = 1
-
-	// Read file
 	fileName := "days\\day-1\\input"
-	absPath, _ := filepath.Abs(fileName)
-	inputAsByteArray, err := ioutil.ReadFile(absPath)
-	if err != nil {
-		log.Panicf("File %s not found. Exiting. \n", fileName)
-		panic(err)
-	}
 
-	// Convert to string slice.
-	stringSlice := strings.Split(string(inputAsByteArray), "\n")
-	// Remove empty line at the end.
-	stringSlice = stringSlice[:len(stringSlice)-1]
+	stringSlice := utils.GetInputAsSlice(fileName)
 
 	// Calculate sum
 	for found == false {
