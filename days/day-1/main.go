@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
+	"path/filepath"
 	"strconv"
 	"strings"
 )
@@ -16,8 +17,9 @@ func main() {
 	seenFrequencies[0] = 1
 
 	// Read file
-	fileName := "C:\\src\\github.com\\nbgucer\\advent-of-code-2018\\days\\day-1\\input"
-	inputAsByteArray, err := ioutil.ReadFile(fileName)
+	fileName := "days\\day-1\\input"
+	absPath, _ := filepath.Abs(fileName)
+	inputAsByteArray, err := ioutil.ReadFile(absPath)
 	if err != nil {
 		log.Panicf("File %s not found. Exiting. \n", fileName)
 		panic(err)
